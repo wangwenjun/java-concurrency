@@ -7,7 +7,7 @@ import java.util.stream.Stream;
  * @Date:2017/2/19 QQ:532500648
  * QQ交流群:286081824
  ***************************************/
-public class ProduceConsumerVersion2 {
+public class ProduceConsumerVersion3 {
 
     private int i = 0;
 
@@ -17,54 +17,66 @@ public class ProduceConsumerVersion2 {
 
     public void produce() {
         synchronized (LOCK) {
-            if (isProduced) {
+            while (isProduced) {
                 try {
                     LOCK.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            } else {
-                i++;
-                System.out.println("P->" + i);
-                LOCK.notify();
-                isProduced = true;
             }
+
+            i++;
+            System.out.println("P->" + i);
+            LOCK.notifyAll();
+            isProduced = true;
+
         }
     }
 
     public void consume() {
         synchronized (LOCK) {
-            if (isProduced) {
-                System.out.println("C->" + i);
-                LOCK.notify();
-                isProduced = false;
-            } else {
+            while (!isProduced) {
                 try {
                     LOCK.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
+            System.out.println("C->" + i);
+            LOCK.notifyAll();
+            isProduced = false;
         }
     }
 
     public static void main(String[] args) {
-        ProduceConsumerVersion2 pc = new ProduceConsumerVersion2();
-        Stream.of("P1", "P2").forEach(n ->
+        ProduceConsumerVersion3 pc = new ProduceConsumerVersion3();
+        Stream.of("P1", "P2", "P3").forEach(n ->
                 new Thread(n) {
                     @Override
                     public void run() {
-                        while (true)
+                        while (true) {
                             pc.produce();
+                            try {
+                                Thread.sleep(10);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
                 }.start()
         );
-        Stream.of("C1", "C2").forEach(n ->
+        Stream.of("C1", "C2", "C3", "C4").forEach(n ->
                 new Thread(n) {
                     @Override
                     public void run() {
-                        while (true)
+                        while (true) {
                             pc.consume();
+                            try {
+                                Thread.sleep(10);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
                 }.start()
         );
