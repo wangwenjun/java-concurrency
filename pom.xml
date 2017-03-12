@@ -24,5 +24,6 @@
     <modules>
         <module>example</module>
         <module>sharing</module>
+        <module>design_pattern</module>
     </modules>
 </project>

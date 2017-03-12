@@ -31,8 +31,16 @@
         <processorPath useClasspath="true" />
         <module name="sharing" />
       </profile>
+      <profile default="false" name="Annotation profile for design_pattern" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="design_pattern" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="design_pattern" target="1.8" />
       <module name="example" target="1.8" />
       <module name="java-concurrency" target="1.8" />
       <module name="sharing" target="1.8" />
