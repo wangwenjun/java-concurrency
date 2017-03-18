@@ -9,15 +9,8 @@ public class SingletonObject4 {
 
     private static SingletonObject4 instance;
 
-    private Object obj;//
     private SingletonObject4() {
-        //empty
-        int i = 0;
-        int j = 10;
-
-        //i = 0,j=10;
-        //obj;
-
+        //---
     }
 
     //double check
