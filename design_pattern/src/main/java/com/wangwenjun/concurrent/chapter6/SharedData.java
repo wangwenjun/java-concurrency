@@ -5,13 +5,13 @@ package com.wangwenjun.concurrent.chapter6;
  * @Date:2017/3/19 QQ:532500648
  * QQ交流群:286081824
  ***************************************/
-public class SharedData {
+public  class SharedData {
 
     private final char[] buffer;
 
-    private final ReadWriteLock lock = new ReadWriteLock();
+    private final  ReadWriteLock lock = new ReadWriteLock();
 
-    public SharedData(int size) {
+    public SharedData(int  size) {
         this.buffer = new char[size];
         for (int i = 0; i < size; i++) {
             this.buffer[i] = '*';
