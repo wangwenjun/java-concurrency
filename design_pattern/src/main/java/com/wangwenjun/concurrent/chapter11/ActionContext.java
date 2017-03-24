@@ -25,4 +25,8 @@ public final class ActionContext {
     public Context getContext() {
         return threadLocal.get();
     }
+
+    private ActionContext(){
+
+    }
 }
