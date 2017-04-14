@@ -9,7 +9,7 @@ public class ThreadService {
 
     private Thread executeThread;
 
-    private boolean finished = false;
+    private volatile boolean finished = false;
 
     public void execute(Runnable task) {
         executeThread = new Thread() {
@@ -40,12 +40,12 @@ public class ThreadService {
                 break;
             }
 
-            try {
+/*            try {
                 executeThread.sleep(1);
             } catch (InterruptedException e) {
                 System.out.println("执行线程被打断!");
                 break;
-            }
+            }*/
         }
 
         finished = false;

@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/classLoader/classLoader.iml" filepath="$PROJECT_DIR$/classLoader/classLoader.iml" />
       <module fileurl="file://$PROJECT_DIR$/design_pattern/design_pattern.iml" filepath="$PROJECT_DIR$/design_pattern/design_pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-concurrency.iml" filepath="$PROJECT_DIR$/java-concurrency.iml" />
       <module fileurl="file://$PROJECT_DIR$/sharing/sharing.iml" filepath="$PROJECT_DIR$/sharing/sharing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
     </modules>
   </component>
 </project>

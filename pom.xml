@@ -25,5 +25,7 @@
         <module>example</module>
         <module>sharing</module>
         <module>design_pattern</module>
+        <module>classLoader</module>
+        <module>test</module>
     </modules>
 </project>
