@@ -1,5 +1,7 @@
 package com.wangwenjun.concurrent.chapter7;
 
+import java.util.concurrent.TimeUnit;
+
 /***************************************
  * @author:Alex Wang
  * @Date:2017/3/22 QQ:532500648
@@ -14,10 +16,18 @@ public class ImmutablePerformance {
         SyncObj synObj = new SyncObj();
         synObj.setName("Alex");
 
+
+        //10000 times
+        //22856 sync
+        //11856 immutable
+
+        //100000 times
+        //230175 sync
+        //122096 immutable
         Thread t1 = new Thread() {
             @Override
             public void run() {
-                for (long l = 0L; l < 1000000; l++) {
+                for (long l = 0L; l < 100000; l++) {
                     System.out.println(Thread.currentThread().getName() + "=" + synObj.toString());
                 }
             }
@@ -27,7 +37,7 @@ public class ImmutablePerformance {
         Thread t2 = new Thread() {
             @Override
             public void run() {
-                for (long l = 0L; l < 1000000; l++) {
+                for (long l = 0L; l < 100000; l++) {
                     System.out.println(Thread.currentThread().getName() + "=" + synObj.toString());
                 }
             }
@@ -51,6 +61,11 @@ final class ImmutableObj {
 
     @Override
     public String toString() {
+        try {
+            TimeUnit.MILLISECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "[" + name + "]";
     }
 }
@@ -65,6 +80,11 @@ class SyncObj {
 
     @Override
     public synchronized String toString() {
+        try {
+            TimeUnit.MILLISECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "[" + name + "]";
     }
 }

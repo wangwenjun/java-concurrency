@@ -7,7 +7,7 @@ package com.wangwenjun.concurrent.chapter3;
  ***************************************/
 public class VolatileTest {
 
-    private static volatile int INIT_VALUE = 0;
+    private static  int INIT_VALUE = 0;
 
     private final static int MAX_LIMIT = 500;
 
