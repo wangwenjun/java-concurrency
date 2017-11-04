@@ -1,4 +1,4 @@
-package com.wangwenjun.concurrent.chapter06;
+package com.wangwenjun.concurrent.chapter07;
 
 import java.io.IOException;
 import java.nio.file.Files;

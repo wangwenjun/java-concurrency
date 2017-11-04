@@ -1,4 +1,4 @@
-package com.wangwenjun.concurrent.chapter05;
+package com.wangwenjun.concurrent.chapter06;
 
 public class ThreadGroupDestroy
 {
