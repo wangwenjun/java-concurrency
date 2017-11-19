@@ -32,7 +32,7 @@ public class EventQueue
     {
         synchronized (eventQueue)
         {
-            if (eventQueue.size() >= max)
+            while (eventQueue.size() >= max)
             {
                 try
                 {
@@ -46,7 +46,7 @@ public class EventQueue
 
             console(" the new event is submitted");
             eventQueue.addLast(event);
-            eventQueue.notify();
+            eventQueue.notifyAll();
         }
     }
 
@@ -54,7 +54,7 @@ public class EventQueue
     {
         synchronized (eventQueue)
         {
-            if (eventQueue.isEmpty())
+            while (eventQueue.isEmpty())
             {
                 try
                 {
@@ -68,7 +68,7 @@ public class EventQueue
 
 
             Event event = eventQueue.removeFirst();
-            this.eventQueue.notify();
+            this.eventQueue.notifyAll();
             console(" the event " + event + " is handled.");
             return event;
         }
