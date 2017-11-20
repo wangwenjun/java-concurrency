@@ -14,4 +14,12 @@ public class Child extends Parent
     }
 
     public static int x = 10;
+
+    public int test(){
+     return 0;
+    }
+
+    public void test(int x){
+
+    }
 }
