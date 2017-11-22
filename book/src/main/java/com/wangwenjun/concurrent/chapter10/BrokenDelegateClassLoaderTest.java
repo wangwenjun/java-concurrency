@@ -11,7 +11,7 @@ public class BrokenDelegateClassLoaderTest
     public static void main(String[] args)
             throws ClassNotFoundException, IllegalAccessException, InstantiationException
     {
-        BrokenDelegateClassLoader loader = new BrokenDelegateClassLoader();
+        BrokerDelegateClassLoader loader = new BrokerDelegateClassLoader();
         Class<?> aClass = loader.loadClass("com.wangwenjun.concurrent.chapter10.HelloWorld");
         Object helloWorld = aClass.newInstance();
 

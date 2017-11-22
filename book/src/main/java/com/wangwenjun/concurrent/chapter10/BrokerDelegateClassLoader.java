@@ -13,26 +13,26 @@ import java.nio.file.Paths;
  * QQ: 532500648
  * QQ群:463962286
  ***************************************/
-public class BrokenDelegateClassLoader extends ClassLoader
+public class BrokerDelegateClassLoader extends ClassLoader
 {
 
     private final static Path DEFAULT_CLASS_DIR = Paths.get("G:", "classloader1");
 
     private final Path classDir;
 
-    public BrokenDelegateClassLoader()
+    public BrokerDelegateClassLoader()
     {
         super();
         this.classDir = DEFAULT_CLASS_DIR;
     }
 
-    public BrokenDelegateClassLoader(String classDir)
+    public BrokerDelegateClassLoader(String classDir)
     {
         super();
         this.classDir = Paths.get(classDir);
     }
 
-    public BrokenDelegateClassLoader(String classDir, ClassLoader parent)
+    public BrokerDelegateClassLoader(String classDir, ClassLoader parent)
     {
         super(parent);
         this.classDir = Paths.get(classDir);
