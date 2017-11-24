@@ -19,9 +19,14 @@ public class Singleton
             this.instance = new Singleton();
         }
 
-        public Singleton getInstance()
+        private Singleton getSingleton()
         {
             return instance;
         }
+    }
+
+    public static Singleton getInstance()
+    {
+        return EnumHolder.INSTANCE.getSingleton();
     }
 }
