@@ -108,16 +108,18 @@ public class BasicThreadPool extends Thread implements ThreadPool
             {
                 if (isShutdown)
                     break;
-                if (runnableQueue.size() > coreSize && activeCount < coreSize)
+                System.out.println(runnableQueue.size()+"=="+activeCount);
+                if (runnableQueue.size() > 0 && activeCount < coreSize)
                 {
                     for (int i = initSize; i < coreSize; i++)
                     {
+                        System.out.println("--create");
                         newThread();
                     }
                     continue;
                 }
 
-                if (runnableQueue.size() > maxSize && activeCount < maxSize)
+                if (runnableQueue.size() > 0 && activeCount < maxSize)
                 {
                     for (int i = coreSize; i < maxSize; i++)
                     {
@@ -125,8 +127,9 @@ public class BasicThreadPool extends Thread implements ThreadPool
                     }
                 }
 
-                if (runnableQueue.size() < coreSize && activeCount > coreSize)
+                if (runnableQueue.size() == 0 && activeCount > maxSize)
                 {
+                    System.out.println("remove...");
                     for (int i = coreSize; i < maxSize; i++)
                     {
                         removeThread();
