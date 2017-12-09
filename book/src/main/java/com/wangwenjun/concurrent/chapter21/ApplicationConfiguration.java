@@ -1,4 +1,4 @@
-package com.wangwenjun.concurrent.chapter12;
+package com.wangwenjun.concurrent.chapter21;
 
 /***************************************
  * @author:Alex Wang
@@ -6,6 +6,6 @@ package com.wangwenjun.concurrent.chapter12;
  * QQ: 532500648
  * QQ群:463962286
  ***************************************/
-public class RuntimeInfo
+public class ApplicationConfiguration
 {
 }
