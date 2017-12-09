@@ -8,4 +8,29 @@ package com.wangwenjun.concurrent.chapter21;
  ***************************************/
 public class ActionContext
 {
+    private static final ThreadLocal<Configuration> configuration =
+            ThreadLocal.withInitial(Configuration::new);
+
+    private static final ThreadLocal<OtherResource> otherResource =
+            ThreadLocal.withInitial(OtherResource::new);
+
+    public static void setConfiguration(Configuration conf)
+    {
+        configuration.set(conf);
+    }
+
+    public static Configuration getConfiguraiton()
+    {
+        return configuration.get();
+    }
+
+    public static void setOtherResource(OtherResource oResource)
+    {
+        otherResource.set(oResource);
+    }
+
+    public static OtherResource getOtherResource()
+    {
+        return otherResource.get();
+    }
 }
