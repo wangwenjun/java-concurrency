@@ -17,7 +17,7 @@ public class AsyncEventDispatcher implements DynamicRouter<Event>
     public void registerChannel(Class<? extends Event> messageType,
                                 Channel<? extends Event> channel)
     {
-        if (!channel.getClass().isAssignableFrom(AsyncChannel.class))
+        if (!(channel instanceof AsyncChannel))
         {
             throw new IllegalArgumentException("The channel must be AsyncChannel Type.");
         }
