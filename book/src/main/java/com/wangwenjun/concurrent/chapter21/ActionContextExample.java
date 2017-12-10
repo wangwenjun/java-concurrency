@@ -16,8 +16,8 @@ public class ActionContextExample
         {
             new Thread(() ->
             {
-                ActionContext.get().setConfiguration(new Configuration());
-                System.out.println(ActionContext.get().getConfiguration());
+                /*ActionContext.get().setConfiguration(new Configuration());
+                System.out.println(ActionContext.get().getConfiguration());*/
             }).start();
         }
     }
