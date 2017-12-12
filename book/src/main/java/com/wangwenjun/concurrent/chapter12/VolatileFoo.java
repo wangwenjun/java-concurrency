@@ -9,6 +9,10 @@ public class VolatileFoo
 
     public static void main(String[] args)
     {
+        int x = 10;
+        x = x++;
+        System.out.println();
+
         new Thread(() ->
         {
             int localValue = init_value;
